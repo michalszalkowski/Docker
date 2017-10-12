@@ -1,0 +1,42 @@
+./run.sh
+docker-compose up
+docker-compose stop
+docker-compose down
+docker-compose logs | grep
+
+docker-compose logs | grep web-post-service
+docker-compose logs | grep web_category-service
+
+docker rm -f $(docker ps -a -q)
+docker rmi -f $(docker images -a -q)
+
+docker ps -a
+docker images -a
+
+----------------------------
+docker exec -it postgres-1-db /bin/bash
+su postgres
+psql
+\l
+\connect docker
+SELECT * FROM post;
+----------------------------
+
+
+----------------------------
+show items
+GET http://localhost:8081/post-service
+GET http://localhost:8082/category-service
+
+add item
+GET http://localhost:8081/post-service/post-1
+GET http://localhost:8082/category-service/categoryA
+
+----------------------------
+
+
+
+
+----------------------------
+http://www.blog.btbw.pl/other/docker-compose-v3-example-1/
+----------------------------

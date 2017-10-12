@@ -1,0 +1,18 @@
+https://hub.docker.com/_/postgres/
+https://hub.docker.com/r/jboss/wildfly/
+
+docker pull postgres:9.6.5
+docker pull jboss/wildfly:10.1.0.Final
+
+docker run --name my-postgres -v /$(pwd)/_tmp_data:/var/lib/postgresql/data -e POSTGRES_PASSWORD=postgres -d postgres:9.6.5
+
+# docker run --name my-wildfly --link my-postgres:postgres -d -p 8080:8080 jboss/wildfly:10.1.0.Final
+# docker exec -ti my-wildfly /bin/bash
+
+----------------------------------------------
+
+docker build -t szalek/wildfly:1.0 .
+
+docker run --name my-wildfly --link my-postgres:postgres -d -p 8080:8080 szalek/wildfly:1.0
+
+----------------------------------------------

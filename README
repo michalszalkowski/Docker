@@ -1,0 +1,57 @@
+https://www.youtube.com/watch?v=Vyp5_F42NGs
+https://www.youtube.com/watch?v=6Er8MAvTWlI
+https://www.youtube.com/watch?v=ZcMr4G5DH7c
+https://www.youtube.com/watch?v=mbmVyXIaY80
+https://www.youtube.com/watch?v=eBGvHkTFDTs
+https://www.youtube.com/watch?v=i7yoXqlg48M
+https://www.youtube.com/watch?v=Zq6vkaaxML0&t=1171s
+
+----------------------------------------
+
+docker ps
+docker ps -a
+docker images
+docker run -it ubuntu
+
+docker stop <id>
+docker start <id>
+
+docker rm <id>
+docker rmi <id>
+
+docker pull nginx
+docker pull ubuntu
+docker pull php:7.1.2-apache
+
+docker run --name my_nginx -p 85:80 nginx
+docker run --name my_nginx -d -p 85:80 nginx // demon mode
+
+docker run -d -p 85:80 -v /home/szalek/tmp:/home/tmp nginx
+
+
+docker exec -ti my_nginx /bin/sh // interactive mode
+
+docker run -d -p 85:80 -v /home/szalek/dev/Docker/nginx/nginx.conf:/etc/nginx/nginx.conf:ro nginx
+
+docker run -d -p 85:80 -v /home/szalek/dev/Docker/nginx/content:/usr/share/nginx/html nginx
+
+----------------------------------------
+
+docker build -t szalek/alpine_extended:1.0 .
+docker build -t szalek/alpine_extended:1.1 .
+docker build -t szalek/php_slim:1.1 . 
+
+----------------------------------------
+
+docker rm -f $(docker ps -a -q)
+docker rmi -f $(docker images -a -q)
+
+----------------------------------------
+
+docker system df
+docker system prune
+docker container prune
+docker network prune
+docker volume prune
+
+----------------------------------------

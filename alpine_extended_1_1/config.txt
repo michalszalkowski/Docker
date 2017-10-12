@@ -1,0 +1,4 @@
+type=1
+category=2
+flag1=true
+flag2=false
